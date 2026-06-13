@@ -92,18 +92,27 @@ export default function Overlay({
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="intro-poem-card"
+              className="intro-panel"
               onClick={(e) => e.stopPropagation()}
               initial={{ y: 45, opacity: 0, scale: 0.96 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 20, opacity: 0, scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 110, damping: 18 }}
             >
-              <p className="intro-poem-text">{firstPoem}</p>
+              <div className="intro-scroll-area">
+                <div className="intro-scroll-indicator" />
+                <div className="intro-text">
+                  {firstPoem.split('\n\n').map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
 
-              <button className="enter-world-button" onClick={onEnterScene}>
-                Войти
-              </button>
+              <div className="intro-footer">
+                <button className="intro-enter-btn" onClick={onEnterScene}>
+                  Войти
+                </button>
+              </div>
             </motion.div>
           </motion.div>
         )}

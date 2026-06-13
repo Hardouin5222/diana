@@ -101,39 +101,35 @@ const starWords = [
 ];
 
 const heartPositions = [
-  { x: '7%', y: '10%', size: 26 },
-  { x: '15%', y: '18%', size: 30 },
-  { x: '24%', y: '13%', size: 28 },
-  { x: '32%', y: '8%', size: 26 },
-  { x: '41%', y: '16%', size: 30 },
-  { x: '50%', y: '11%', size: 28 },
-  { x: '60%', y: '7%', size: 26 },
-  { x: '68%', y: '17%', size: 31 },
-  { x: '77%', y: '11%', size: 28 },
-  { x: '86%', y: '18%', size: 30 },
+  { x: '8%', y: '10%', size: 24 },
+  { x: '17%', y: '16%', size: 28 },
+  { x: '26%', y: '11%', size: 26 },
+  { x: '36%', y: '8%', size: 24 },
+  { x: '46%', y: '14%', size: 28 },
+  { x: '56%', y: '10%', size: 26 },
+  { x: '66%', y: '7%', size: 24 },
+  { x: '75%', y: '15%', size: 29 },
+  { x: '85%', y: '11%', size: 26 },
 
-  { x: '10%', y: '28%', size: 30 },
-  { x: '20%', y: '33%', size: 28 },
-  { x: '29%', y: '26%', size: 32 },
-  { x: '39%', y: '31%', size: 28 },
-  { x: '49%', y: '25%', size: 31 },
-  { x: '58%', y: '34%', size: 29 },
-  { x: '68%', y: '28%', size: 32 },
-  { x: '79%', y: '32%', size: 28 },
-  { x: '89%', y: '26%', size: 31 },
+  { x: '10%', y: '24%', size: 28 },
+  { x: '22%', y: '29%', size: 26 },
+  { x: '33%', y: '23%', size: 30 },
+  { x: '45%', y: '28%', size: 26 },
+  { x: '57%', y: '22%', size: 29 },
+  { x: '69%', y: '30%', size: 27 },
+  { x: '81%', y: '24%', size: 29 },
 
-  { x: '12%', y: '43%', size: 28 },
-  { x: '25%', y: '47%', size: 31 },
-  { x: '36%', y: '41%', size: 27 },
-  { x: '48%', y: '46%', size: 30 },
-  { x: '61%', y: '40%', size: 28 },
-  { x: '73%', y: '45%', size: 30 },
-  { x: '85%', y: '42%', size: 28 },
+  { x: '14%', y: '38%', size: 26 },
+  { x: '28%', y: '42%', size: 29 },
+  { x: '42%', y: '36%', size: 24 },
+  { x: '56%', y: '41%', size: 28 },
+  { x: '70%', y: '36%', size: 26 },
+  { x: '84%', y: '41%', size: 28 },
 
-  { x: '18%', y: '56%', size: 26 },
-  { x: '35%', y: '54%', size: 28 },
-  { x: '52%', y: '58%', size: 27 },
-  { x: '70%', y: '55%', size: 29 },
+  { x: '18%', y: '52%', size: 24 },
+  { x: '36%', y: '49%', size: 26 },
+  { x: '54%', y: '53%', size: 25 },
+  { x: '72%', y: '50%', size: 27 },
 ];
 
 export default function App() {
@@ -188,13 +184,14 @@ export default function App() {
       <div
         className="lake-bg"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(4,8,18,0.12), rgba(4,8,18,0.48)), url(${lakeNightBg})`,
+          backgroundImage: `linear-gradient(to bottom, rgba(4,8,18,0.10), rgba(4,8,18,0.38)), url(${lakeNightBg})`,
         }}
       />
 
       {started && (
         <>
           <div className="twinkle-layer" />
+          <div className="stars-touch-label">Коснись звёзд</div>
 
           <div className="hearts-layer">
             {heartPositions.map((item, index) => (
@@ -223,7 +220,7 @@ export default function App() {
 
           {showRose && (
             <button
-              className="rose-bouquet-button"
+              className="rose-center-wrap"
               onClick={(e) => {
                 e.stopPropagation();
                 setShowLetter(true);
@@ -231,8 +228,8 @@ export default function App() {
               aria-label="Открыть письмо"
               title="Открыть письмо"
             >
-              <img src={roseBouquet} alt="Букет роз" />
-              <span className="rose-hint">Коснись роз</span>
+              <img className="rose-center-image" src={roseBouquet} alt="Букет роз" />
+              <span className="rose-touch-label">Коснись роз</span>
             </button>
           )}
         </>
